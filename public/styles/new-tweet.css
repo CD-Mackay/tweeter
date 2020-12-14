@@ -1,0 +1,21 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+
+.submit-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.tweet-form {
+  align-self: center;
+}
+
+#tweet-label {
+  border-bottom: 2px solid black;
+}
