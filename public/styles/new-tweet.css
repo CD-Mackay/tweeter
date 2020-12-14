@@ -14,8 +14,12 @@
 
 .tweet-form {
   align-self: center;
+  width: 100%;
 }
 
-#tweet-label {
+#tweet-text {
+  background-color: #f4f1ec;
+  border: 0;
   border-bottom: 2px solid black;
+  width: 100%;
 }
