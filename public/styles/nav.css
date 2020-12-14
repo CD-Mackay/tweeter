@@ -1,0 +1,20 @@
+nav {
+  font-family: 'Bungee';
+  height: 120px;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.nav-item {
+  margin: 1.5em;
+  margin-top: 1.5em;
+  top: 1.5em;
+  position: relative;
+}
+a.nav-item {
+  color: white;
+}
