@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+
 
 
     <!-- External JS -->
@@ -41,7 +43,7 @@
       <i class="fas fa-angle-double-down"></i>
     </div>
     </nav>
-    <header>
+    <header class="main">
       <div class="header-img">
           <img src="/images/profile-hex.png"> 
       </div>
@@ -68,9 +70,13 @@
       <!--------------------------------------------------------->
       <section class="tweets">
         <article class="tweet">
-          <header>Who sent this Tweet? Username etc.</header>
-          <div>Look it's the content of the tweet lol</div>
-          <footer>The footer should contain the date, and some random buttons for the tweet</footer>
+          <header><div class="username-icon"><p>Username</p><i>Icon</i></div><p class="handle">Online Handle</p></header>
+          <div><p class="tweet-content">Look it's the content of the tweet lol</p></div>
+          <footer><p>A million years agoo...</p>
+            <div>
+              <i class="far fa-flag"></i><i class="far fa-heart"></i><i class="fas fa-retweet"></i>
+            </div>
+          </footer>
         </article>
       </section>
     </main>
