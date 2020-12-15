@@ -3,8 +3,10 @@ i {
   color: red;
   margin-bottom: 1em;
 }
+.fas {
+  margin-top: 0.5em;
+}
 nav {
-  font-family: 'Bungee';
   height: 120px;
   background-color: #4056A1;
   color: #FFFFFF;
@@ -14,11 +16,15 @@ nav {
   justify-content: space-between;
   align-items: flex-start;
 }
-.nav-item {
-  margin: 1.5em;
-  margin-top: 1.5em;
+.nav-new {
   top: 1.5em;
   position: relative;
+}
+.nav-item {
+  font-family: 'Bungee';
+  top: 1.5em;
+  position: relative;
+  margin-left: 1.5em;
 }
 a.nav-item {
   color: white;
@@ -26,5 +32,6 @@ a.nav-item {
 #tweet-arrows {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5em;
+  margin: 1.5em;
+  margin-top: 0;
 }
