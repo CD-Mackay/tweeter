@@ -4,7 +4,7 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
     <!-- Added meta information to allow for media queries-->
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
     <!-- External CSS -->
@@ -28,6 +28,8 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
@@ -62,6 +64,14 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <!--------------------------------------------------------->
+      <section class="tweets">
+        <article class="tweet">
+          <header>Who sent this Tweet? Username etc.</header>
+          <div>Look it's the content of the tweet lol</div>
+          <footer>The footer should contain the date, and some random buttons for the tweet</footer>
+        </article>
       </section>
     </main>
   </body>
