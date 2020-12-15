@@ -10,15 +10,30 @@ article.tweet header {
   flex-direction: row;
   justify-content: space-between;
 }
+
+footer > div > i {
+  margin-bottom: 0;
+}
+footer > p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
 .handle {
   display: none;
   font-weight: lighter;
-  color: #5c8fad
+  color: #5c8fad;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .username-icon {
   display: flex;
   flex-direction: row;
+}
+
+.username-icon p, .username-icon i {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .tweet {
   width: 100%;
@@ -26,6 +41,7 @@ article.tweet header {
   border: 2px solid black;
   font-weight: normal;
   margin-bottom: 2rem;
+  padding: 20px;
 }
 
 .tweet-content {

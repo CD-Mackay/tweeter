@@ -2,10 +2,9 @@ i {
   align-self: center;
   color: red;
   margin-bottom: 1em;
+  margin-top: 0;
 }
-.fas {
-  margin-top: 0.5em;
-}
+
 nav {
   height: 120px;
   background-color: #4056A1;
@@ -19,8 +18,9 @@ nav {
   top: 0;
 }
 .nav-new {
-  top: 1.5em;
+  margin-top: 1.5em;
   position: relative;
+  margin-bottom: 0;
 }
 .nav-item {
   font-family: 'Bungee';
