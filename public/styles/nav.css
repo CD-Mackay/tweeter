@@ -15,6 +15,8 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  position: fixed;
+  top: 0;
 }
 .nav-new {
   top: 1.5em;
