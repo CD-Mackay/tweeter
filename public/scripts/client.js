@@ -4,31 +4,14 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
+ 
+  const loadTweets = function() {
+    $.ajax({method: 'GET',
+            url: '/tweets'})
+            .then(function(data) {
+              renderTweets(data);
+            })
+  }
   const renderTweets = function(tweets) {
     let result = "";
     for (let tweet of tweets) {
@@ -37,11 +20,16 @@ $(document).ready(function() {
     $('.tweets').append(result);
   };
 
+  function getDate(milliseconds) {
+    return new Date(milliseconds).toDateString();
+  }
+
   const createTweetElement = function(tweet) {
     let user = tweet.user;
+    let date = getDate(tweet.created_at);
     let $tweet = ` <article class="tweet"><header><div class="username-icon"><p>${tweet.user.name}</p><p><img src=${tweet.user.avatars}/></p></div><p class="handle">${user.handle}</p></header>
   <div><p class="tweet-content">${tweet.content.text}</p></div>
-  <footer><p>${tweet.created_at}</p>
+  <footer><p>${date}</p>
     <div>
       <i class="far fa-flag"></i><i class="far fa-heart"></i><i class="fas fa-retweet"></i>
     </div>
@@ -50,22 +38,27 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  renderTweets(data);
+  loadTweets();
 
 //////////////////////////////
     $('.tweet-form').on('submit', function(event) {
       event.preventDefault();
-      console.log('Submit!');
-      console.log($(this).serialize());
-      const data = $(this).serialize();
+      let data = $(this).serialize();
+      if (data.length > 145) {
+        alert('tweet is too Long');
+      } else if (data.length <= 5) {
+        alert('tweet is too short');
+      } else if (data.length < 140 && data.length > 0) {
       $.ajax({method: 'POST',
               url: '/tweets',
             data: $(this).serialize(),
           })
       .then(function (data) {
         console.log('Sucess: ', data);
-        $('.tweets').append(createTweetElement(data));
+       $('.tweets').append(createTweetElement(data));
+        
+        
       })
+    }})
     
-    })
 });
