@@ -49,7 +49,8 @@ $(document).ready(function() {
       event.preventDefault();
       let data = $(this).serialize();
       if (data.length > 145) {
-        alert('tweet is too Long');
+        $('#error-message').append('<p>Take it easy Hemingway, 140 characters at most.</p>');
+        $('#error-message').css()
       } else if (data.length <= 5) {
         alert('tweet is too short');
       } else if (data.length < 140 && data.length > 0) {
@@ -58,7 +59,11 @@ $(document).ready(function() {
             data: $(this).serialize(),
           })
       .then(function () {
+        $('textarea').val('');
+        $('.counter').val('140');
         loadTweets();
+        console.log($(this));
+        
         })
        
     }})
