@@ -6,10 +6,10 @@
 $(document).ready(function() {
   const loadTweets = function() {
     $.ajax({method: 'GET',
-            url: '/tweets'})
-            .then(function(data) {
-              renderTweets(data);
-            })
+      url: '/tweets'})
+      .then(function(data) {
+        renderTweets(data);
+      });
   };
 
   const renderTweets = function(tweets) {
@@ -23,36 +23,46 @@ $(document).ready(function() {
 
   function getDate(milliseconds) {
     let current = Date.now();
+    // elapsed gives number of years since tweet was created.
     let elapsed = ((current - milliseconds) / 1000) / 31536000;
-    console.log(elapsed / 30);
 
     if (elapsed > 1) {
       return Math.floor(elapsed) + " year ago";
     }
+
     elapsed = elapsed * 12;
+
     if (elapsed > 1) {
       return Math.floor(elapsed) + " months ago";
     }
+
     elapsed = elapsed * 30;
+    
     if (elapsed > 1) {
       return Math.floor(elapsed) + " days ago";
     }
+
     elapsed = elapsed * 24;
+
     if (elapsed > 1) {
       return Math.floor(elapsed) + " hours ago";
     }
+
     elapsed = elapsed * 60;
+
     if (elapsed > 1) {
       return Math.floor(elapsed) + " minutes ago";
     }
+
     elapsed = elapsed * 60;
+
     return Math.floor(elapsed) + " seconds ago";
-  };
-// Prevent cross-site scripting
+  }
+  // Prevent cross-site scripting
   const escape = function(string) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(string));
-    return div.innerHTML
+    return div.innerHTML;
   };
 
   const createTweetElement = function(tweet) {
@@ -68,41 +78,42 @@ $(document).ready(function() {
   };
 
   loadTweets();
-// End of initial page loading
+  // End of initial page loading
 
-// Submitting new tweets
-    $('.tweet-form').on('submit', function(event) {
-      event.preventDefault();
-      let data = $(this).serializeArray();
-      let tweetLength = data[0].value.length;
-      if (tweetLength > 140) {
-        $('#error-message').slideUp(200);
-        $('#error-message').text('Take it easy Hemingway, 140 characters at most.');
-        $('#error-message').slideDown(200);
-      } else if (tweetLength <= 0) {
-        $('#error-message').slideUp(200);
-        $('#error-message').text('You could consider actually writing something...');
-        $('#error-message').slideDown(200);
-      } else if (tweetLength <= 140 && tweetLength > 0) {
-        $('#error-message').slideUp(200);
+  // Submitting new tweets
+  $('.tweet-form').on('submit', function(event) {
+    event.preventDefault();
+    let data = $(this).serializeArray();
+    let tweetLength = data[0].value.length;
+    if (tweetLength > 140) {
+      $('#error-message').slideUp(200);
+      $('#error-message').text('Take it easy Hemingway, 140 characters at most.');
+      $('#error-message').slideDown(200);
+    } else if (tweetLength <= 0) {
+      $('#error-message').slideUp(200);
+      $('#error-message').text('You could consider actually writing something...');
+      $('#error-message').slideDown(200);
+    } else if (tweetLength <= 140 && tweetLength > 0) {
+      $('#error-message').slideUp(200);
       $.ajax({method: 'POST',
-              url: '/tweets',
-            data: $(this).serialize(),
-          })
-      .then(function () {
-        $('textarea').val('');
-        $('.counter').val('140');
-        loadTweets();
+        url: '/tweets',
+        data: $(this).serialize(),
+      })
+        .then(function() {
+          $('textarea').val('');
+          $('.counter').val('140');
+          loadTweets();
         });
-       // Navigate to and focus on textarea when clicking compose tweet button. 
-    }});
-    $('.arrow-nav').on('click', function() {
-      event.preventDefault();
-      $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
-      setTimeout(() => {
-        $('.tweet-form').children('#tweet-text').focus(); 
-      }, 0);
+      // Navigate to and focus on textarea when clicking compose tweet button.
+    }
+  });
+  $('.arrow-nav').on('click', function(event) {
+    event.preventDefault();
+    $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
+    setTimeout(() => {
+      $('.tweet-form').children('#tweet-text').focus();
+    }, 0);
       
-    });
+  });
 
 });

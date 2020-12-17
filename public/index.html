@@ -5,8 +5,6 @@
     <title>Tweeter - Home Page</title>
     <!-- Added meta information to allow for media queries-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <!-- External Fonts (Bungee/Source Sans Pro)-->
@@ -22,16 +20,11 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
-
-
-
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
   </head>
 
   <body>
@@ -39,9 +32,11 @@
     <nav>
       <span class="nav-item">tweeter</span>
       <div id="tweet-arrows">
-      <p class="nav-new"><a href="#top-of-container" class="arrow-nav"><strong>Write</strong> a new tweet</a></p>
-      <a href="#top-of-container" class="arrow-nav"><i class="fas fa-angle-double-down"></i></a>
-    </div>
+        <p class="nav-new">
+          <a href="#top-of-container" class="arrow-nav"><strong>Write</strong> a new tweet</a>
+        </p>
+        <a href="#top-of-container" class="arrow-nav"><i class="fas fa-angle-double-down"></i></a>
+      </div>
     </nav>
     <!--Header with Icon and username-->
     <header class="main">
@@ -49,14 +44,13 @@
           <img src="/images/profile-hex.png"> 
       </div>
       <div>
-          <h2 class="nav-header">Connor<span class="light"> Mackay</span> </h2>
+        <h2 class="nav-header">Connor<span class="light"> Mackay</span> </h2>
       </div>
   </header>
   
 
     <!-- Page-specific (main) content here -->
     <main class="container" id="top-of-container">
-      <p>Connor was here.</p>
       <!-- New Tweet -->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>

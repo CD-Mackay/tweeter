@@ -12,7 +12,12 @@
   text-align: center;
   margin-bottom: 30px;
 }
+#submit-button {
+  background-color: #4056A1;
+  color: white;
+  font-family: 'Bungee';
 
+}
 .submit-form {
   display: flex;
   flex-direction: row;
