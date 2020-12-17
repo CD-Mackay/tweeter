@@ -22,7 +22,31 @@ $(document).ready(function() {
   };
 
   function getDate(milliseconds) {
-    return new Date(milliseconds).toDateString();
+    let current = Date.now();
+    let elapsed = ((current - milliseconds) / 1000) / 31536000;
+    console.log(elapsed / 30);
+
+    if (elapsed > 1) {
+      return Math.floor(elapsed) + " year ago";
+    }
+    elapsed = elapsed * 12;
+    if (elapsed > 1) {
+      return Math.floor(elapsed) + " months ago";
+    }
+    elapsed = elapsed * 30;
+    if (elapsed > 1) {
+      return Math.floor(elapsed) + " days ago";
+    }
+    elapsed = elapsed * 24;
+    if (elapsed > 1) {
+      return Math.floor(elapsed) + " hours ago";
+    }
+    elapsed = elapsed * 60;
+    if (elapsed > 1) {
+      return Math.floor(elapsed) + " minutes ago";
+    }
+    elapsed = elapsed * 60;
+    return Math.floor(elapsed) + " seconds ago";
   };
 // Prevent cross-site scripting
   const escape = function(string) {
