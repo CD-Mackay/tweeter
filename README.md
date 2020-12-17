@@ -2,7 +2,7 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+Made by Connor Mackay for the Lighthouse Labs Bootcamp. This single page app can be used to submit short text snippets which will be displayed in reverse chronological order. Responsive web design ensures that this app is aesthetically pleasing and usable on tablet, mobile and desktop. 
 
 ## Getting Started
 
@@ -14,4 +14,8 @@ This repository is the starter code for the project: Students will fork and clon
 ## Dependencies
 
 - Express
+- BodyParser
+- Chance
 - Node 5.10.x or above
+
+##
