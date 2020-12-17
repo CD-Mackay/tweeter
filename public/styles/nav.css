@@ -6,15 +6,18 @@
 .arrow-nav:hover {
   transform: scale(1.5)
 }
+
+.fas {
+  margin: auto;
+}
+
 i {
   align-self: center;
   color: red;
   margin-bottom: 1em;
   margin-top: 0;
 }
-.fas {
-  margin: auto;
-}
+
 nav {
   height: 120px;
   background-color: #4056A1;
@@ -33,21 +36,32 @@ nav {
   position: relative;
   margin-bottom: 0;
 }
+
 .nav-new:hover {
-  transform: scale(1.5)}
+  transform: scale(1.5)
+}
+
 .nav-item {
   font-family: 'Bungee';
   top: 1.5em;
   position: relative;
   margin-left: 1.5em;
 }
+
 a.nav-item {
   color: white;
 }
+
 #tweet-arrows {
   display: flex;
   flex-direction: column;
   margin: 1.5em;
   margin-top: 0;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    background-color: #F09F52;
+  }
 }

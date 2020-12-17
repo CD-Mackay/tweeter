@@ -34,3 +34,17 @@ body {
    width: 90%;
    align-self: center;
  }
+ @media screen and (min-width: 768px) {
+  main {
+    width: 40vw;
+    margin-top: 120px;
+    margin-left: 60px;
+  }
+  body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+

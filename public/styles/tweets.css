@@ -14,10 +14,12 @@ article.tweet header {
 footer > div > i {
   margin-bottom: 0;
 }
+
 footer > p {
   margin-bottom: 0;
   margin-top: 0;
 }
+
 .handle {
   display: none;
   font-weight: lighter;
@@ -26,15 +28,6 @@ footer > p {
   margin-bottom: 0;
 }
 
-.username-icon {
-  display: flex;
-  flex-direction: row;
-}
-
-.username-icon p, .username-icon i {
-  margin-top: 0;
-  margin-bottom: 0;
-}
 .tweet {
   width: 100%;
   margin: auto;
@@ -58,6 +51,17 @@ footer > p {
   box-shadow: 12px 11px 6px -4px #5c8fad;
   font-weight: 700;
 }
+
 .tweet:hover .handle {
   display: inline;
+}
+
+.username-icon {
+  display: flex;
+  flex-direction: row;
+}
+
+.username-icon p, .username-icon i {
+  margin-top: 0;
+  margin-bottom: 0;
 }
