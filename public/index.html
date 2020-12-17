@@ -39,8 +39,8 @@
     <nav>
       <span class="nav-item">tweeter</span>
       <div id="tweet-arrows">
-      <p class="nav-new" href="#"><strong>Write</strong> a new tweet</p>
-      <i class="fas fa-angle-double-down"></i>
+      <p class="nav-new"><a href="#top-of-container" class="arrow-nav"><strong>Write</strong> a new tweet</a></p>
+      <a href="#top-of-container" class="arrow-nav"><i class="fas fa-angle-double-down"></i></a>
     </div>
     </nav>
     <header class="main">
@@ -48,17 +48,18 @@
           <img src="/images/profile-hex.png"> 
       </div>
       <div>
-          <h2 class="nav-header">Your Name</h2>
+          <h2 class="nav-header">Connor<span class="light"> Mackay</span> </h2>
       </div>
   </header>
   
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
+    <main class="container" id="top-of-container">
       <p>Connor was here.</p>
       <!-- New Tweet -->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
+        <div id="error-message"></div>
         <form class="tweet-form" action="/" method="POST">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="submit-form">

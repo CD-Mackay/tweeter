@@ -10,7 +10,8 @@ $(document).ready(function() {
             .then(function(data) {
               renderTweets(data);
             })
-  }
+  };
+
   const renderTweets = function(tweets) {
     let result = "";
     for (let tweet of tweets) {
@@ -22,12 +23,13 @@ $(document).ready(function() {
 
   function getDate(milliseconds) {
     return new Date(milliseconds).toDateString();
-  }
+  };
+
   const escape = function(string) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(string));
     return div.innerHTML
-  }
+  };
 
   const createTweetElement = function(tweet) {
     let user = tweet.user;
@@ -39,21 +41,23 @@ $(document).ready(function() {
       <i class="far fa-flag"></i><i class="far fa-heart"></i><i class="fas fa-retweet"></i>
     </div>
   </footer></article>`;
-
     return $tweet;
   };
 
   loadTweets();
-//////////////////////////////
     $('.tweet-form').on('submit', function(event) {
       event.preventDefault();
       let data = $(this).serialize();
       if (data.length > 145) {
-        $('#error-message').append('<p>Take it easy Hemingway, 140 characters at most.</p>');
-        $('#error-message').css()
+        $('#error-message').slideUp(400);
+        $('#error-message').text('Take it easy Hemingway, 140 characters at most.');
+        $('#error-message').slideDown(400);
       } else if (data.length <= 5) {
-        alert('tweet is too short');
+        $('#error-message').slideUp(400);
+        $('#error-message').text('You could consider actually writing something...');
+        $('#error-message').slideDown(400);
       } else if (data.length < 140 && data.length > 0) {
+        $('#error-message').slideUp(400);
       $.ajax({method: 'POST',
               url: '/tweets',
             data: $(this).serialize(),
@@ -62,11 +66,16 @@ $(document).ready(function() {
         $('textarea').val('');
         $('.counter').val('140');
         loadTweets();
-        console.log($(this));
-        
         })
        
     }})
-    
+    $('.arrow-nav').on('click', function() {
+      event.preventDefault();
+      $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
+      setTimeout(() => {
+        $('.tweet-form').children('#tweet-text').focus(); 
+      }, 0);
+      
+    })
 
 });

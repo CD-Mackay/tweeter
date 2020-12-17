@@ -7,6 +7,8 @@ header.main {
   align-items: center;
   justify-content: center;
   background-image: url('../images/axiom-pattern.png');
+  background-color: #4056A1;
+
 }
 .header-img {
   align-self: center;
@@ -15,4 +17,9 @@ header.main {
 .nav-header {
   position: relative;
   margin-top: 0;
+  color: white;
+}
+
+span.light {
+  font-weight: lighter;
 }

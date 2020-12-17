@@ -1,13 +1,24 @@
+.arrow-nav {
+  text-decoration: none;
+  color: white;
+}
+
+.arrow-nav:hover {
+  transform: scale(1.5)
+}
 i {
   align-self: center;
   color: red;
   margin-bottom: 1em;
   margin-top: 0;
 }
-
+.fas {
+  margin: auto;
+}
 nav {
   height: 120px;
   background-color: #4056A1;
+  background-image: url('../images/axiom-pattern.png');
   color: #FFFFFF;
   width: 100vw;
   display: flex;
@@ -22,6 +33,8 @@ nav {
   position: relative;
   margin-bottom: 0;
 }
+.nav-new:hover {
+  transform: scale(1.5)}
 .nav-item {
   font-family: 'Bungee';
   top: 1.5em;
@@ -36,4 +49,5 @@ a.nav-item {
   flex-direction: column;
   margin: 1.5em;
   margin-top: 0;
+  align-items: center;
 }
