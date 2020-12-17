@@ -34,12 +34,18 @@ $(document).ready(function() {
   const createTweetElement = function(tweet) {
     let user = tweet.user;
     let date = getDate(tweet.created_at);
-    let $tweet = ` <article class="tweet"><header><div class="username-icon">
-                   <p>${escape(tweet.user.name)}</p><p><img src=${escape(tweet.user.avatars)}/></p>
-                   </div><p class="handle">${escape(user.handle)}</p></header>
-                   <div><p class="tweet-content">${escape(tweet.content.text)}</p></div><footer>
-                   <p>${date}</p><div><i class="far fa-flag"></i><i class="far fa-heart"></i>
-                   <i class="fas fa-retweet"></i></div></footer></article>`;
+    let $tweet = `   <article class="tweet">
+    <header>
+      <div class="username-icon">
+       <p><img src=${escape(tweet.user.avatars)}/></p>
+       <p>${escape(tweet.user.name)}</p>
+       
+   </div>
+   <p class="handle">${escape(user.handle)}</p>
+ </header>
+   <div><p class="tweet-content">${escape(tweet.content.text)}</p></div><footer>
+   <p>${date}</p><div><i class="far fa-flag"></i><i class="far fa-heart"></i>
+   <i class="fas fa-retweet"></i></div></footer></article>`;
     return $tweet;
   };
 
