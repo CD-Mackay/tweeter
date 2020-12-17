@@ -24,7 +24,7 @@ $(document).ready(function() {
   function getDate(milliseconds) {
     return new Date(milliseconds).toDateString();
   };
-
+// Prevent cross-site scripting
   const escape = function(string) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(string));
@@ -34,30 +34,32 @@ $(document).ready(function() {
   const createTweetElement = function(tweet) {
     let user = tweet.user;
     let date = getDate(tweet.created_at);
-    let $tweet = ` <article class="tweet"><header><div class="username-icon"><p>${escape(tweet.user.name)}</p><p><img src=${escape(tweet.user.avatars)}/></p></div><p class="handle">${escape(user.handle)}</p></header>
-  <div><p class="tweet-content">${escape(tweet.content.text)}</p></div>
-  <footer><p>${date}</p>
-    <div>
-      <i class="far fa-flag"></i><i class="far fa-heart"></i><i class="fas fa-retweet"></i>
-    </div>
-  </footer></article>`;
+    let $tweet = ` <article class="tweet"><header><div class="username-icon">
+                   <p>${escape(tweet.user.name)}</p><p><img src=${escape(tweet.user.avatars)}/></p>
+                   </div><p class="handle">${escape(user.handle)}</p></header>
+                   <div><p class="tweet-content">${escape(tweet.content.text)}</p></div><footer>
+                   <p>${date}</p><div><i class="far fa-flag"></i><i class="far fa-heart"></i>
+                   <i class="fas fa-retweet"></i></div></footer></article>`;
     return $tweet;
   };
 
   loadTweets();
+// End of initial page loading
+
+// Submitting new tweets
     $('.tweet-form').on('submit', function(event) {
       event.preventDefault();
       let data = $(this).serialize();
       if (data.length > 145) {
-        $('#error-message').slideUp(400);
+        $('#error-message').slideUp(200);
         $('#error-message').text('Take it easy Hemingway, 140 characters at most.');
-        $('#error-message').slideDown(400);
+        $('#error-message').slideDown(200);
       } else if (data.length <= 5) {
-        $('#error-message').slideUp(400);
+        $('#error-message').slideUp(200);
         $('#error-message').text('You could consider actually writing something...');
-        $('#error-message').slideDown(400);
+        $('#error-message').slideDown(200);
       } else if (data.length < 140 && data.length > 0) {
-        $('#error-message').slideUp(400);
+        $('#error-message').slideUp(200);
       $.ajax({method: 'POST',
               url: '/tweets',
             data: $(this).serialize(),
@@ -66,9 +68,9 @@ $(document).ready(function() {
         $('textarea').val('');
         $('.counter').val('140');
         loadTweets();
-        })
-       
-    }})
+        });
+       // Navigate to and focus on textarea when clicking compose tweet button. 
+    }});
     $('.arrow-nav').on('click', function() {
       event.preventDefault();
       $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
@@ -76,6 +78,6 @@ $(document).ready(function() {
         $('.tweet-form').children('#tweet-text').focus(); 
       }, 0);
       
-    })
+    });
 
 });
