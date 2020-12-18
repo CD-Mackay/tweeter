@@ -21,7 +21,6 @@ footer > p {
 }
 
 .handle {
-  display: none;
   font-weight: lighter;
   color: #5c8fad;
   margin-top: 0;
@@ -44,6 +43,7 @@ footer > p {
 }
 
 .tweet i {
+  display: none;
   color: #5c8fad;
 }
 
@@ -52,7 +52,7 @@ footer > p {
   font-weight: 700;
 }
 
-.tweet:hover .handle {
+.tweet:hover i {
   display: inline;
 }
 
