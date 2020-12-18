@@ -12,6 +12,7 @@ $(document).ready(function() {
       });
   };
 
+  
   const renderTweets = function(tweets) {
     let result = "";
     for (let tweet of tweets) {
@@ -21,43 +22,35 @@ $(document).ready(function() {
     $('.tweets').append(result);
   };
 
+
   function getDate(milliseconds) {
     let current = Date.now();
     // elapsed gives number of years since tweet was created.
     let elapsed = ((current - milliseconds) / 1000) / 31536000;
-
+    // determine what unit of time to display
     if (elapsed > 1) {
       return Math.floor(elapsed) + " year ago";
     }
-
     elapsed = elapsed * 12;
-
     if (elapsed > 1) {
       return Math.floor(elapsed) + " months ago";
     }
-
-    elapsed = elapsed * 30;
-    
+    elapsed = elapsed * 30; 
     if (elapsed > 1) {
       return Math.floor(elapsed) + " days ago";
     }
-
     elapsed = elapsed * 24;
-
     if (elapsed > 1) {
       return Math.floor(elapsed) + " hours ago";
     }
-
     elapsed = elapsed * 60;
-
     if (elapsed > 1) {
       return Math.floor(elapsed) + " minutes ago";
     }
-
     elapsed = elapsed * 60;
-
     return Math.floor(elapsed) + " seconds ago";
-  }
+  };
+
   // Prevent cross-site scripting
   const escape = function(string) {
     let div = document.createElement('div');
@@ -68,12 +61,27 @@ $(document).ready(function() {
   const createTweetElement = function(tweet) {
     let user = tweet.user;
     let date = getDate(tweet.created_at);
-    let $tweet = `<article class="tweet"><header><div class="username-icon">
-                  <p><img src=${escape(tweet.user.avatars)}/></p><p>${escape(tweet.user.name)}</p></div>
-                  <p class="handle">${escape(user.handle)}</p></header><div><p class="tweet-content">
-                  ${escape(tweet.content.text)}</p></div><footer><p>${date}</p><div>
-                  <i class="far fa-flag"></i><i class="far fa-heart"></i><i class="fas fa-retweet">
-                  </i></div></footer></article>`;
+    let $tweet = 
+    `<article class="tweet">
+      <header>
+        <div class="username-icon">
+          <p><img src=${escape(tweet.user.avatars)}/></p>
+          <p>${escape(tweet.user.name)}</p>
+        </div>
+        <p class="handle">${escape(user.handle)}</p>
+      </header>
+      <div>
+        <p class="tweet-content">${escape(tweet.content.text)}</p>
+      </div>
+      <footer>
+        <p>${date}</p>
+        <div>
+          <i class="far fa-flag"></i>
+          <i class="far fa-heart"></i>
+          <i class="fas fa-retweet"></i>
+        </div>
+      </footer>
+    </article>`;
     return $tweet;
   };
 
@@ -104,9 +112,10 @@ $(document).ready(function() {
           $('.counter').val('140');
           loadTweets();
         });
-      // Navigate to and focus on textarea when clicking compose tweet button.
     }
   });
+
+  // Navigate to and focus on textarea when clicking compose tweet button.
   $('.arrow-nav').on('click', function(event) {
     event.preventDefault();
     $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
